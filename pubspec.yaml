@@ -6,7 +6,7 @@ description: A new Flutter project.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 
-version: 1.0.2+1
+version: 1.0.3+1
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -33,4 +33,10 @@ flutter:
   uses-material-design: true
 
  
-assets: -diceimages
+  assets:
+    - diceimages/dice1.png
+    - diceimages/dice2.png
+    - diceimages/dice3.png
+    - diceimages/dice4.png
+    - diceimages/dice5.png
+    - diceimages/dice6.png
