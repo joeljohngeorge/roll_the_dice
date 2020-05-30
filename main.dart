@@ -4,10 +4,8 @@ void main()=>runApp(DiceApp());
 class DiceApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
+    return MaterialApp( 
       home: Scaffold(
-        backgroundColor: Colors.green,
         appBar: AppBar(
             title:Center(child: Text("Dice")),
             backgroundColor:Colors.green),
@@ -24,6 +22,11 @@ class Dicepage extends StatefulWidget {
 class _DicepageState extends State<Dicepage> {
   int leftno=1;
   int rightno=1;
+  void change()
+  { 
+    leftno=Random().nextInt(6)+1;
+    rightno=Random().nextInt(6)+1;
+   }
   @override
   Widget build(BuildContext context) {
     
@@ -33,23 +36,32 @@ class _DicepageState extends State<Dicepage> {
           Expanded(child: 
           Padding(
             padding: const EdgeInsets.all(17.0),
-            child: FlatButton
-            (onPressed: () { setState(() {
-             leftno=Random().nextInt(6)+1;
-             rightno=Random().nextInt(6)+1;
-            }); },
-            child: Image.asset('diceimages/dice$leftno.png')),
-          ),),
+            child: Image.asset('diceimages/dice$leftno.png')
+          ),
+          ),
           Expanded(child: 
           Padding(
             padding: const EdgeInsets.all(17.0),
-            child: FlatButton(onPressed: () {
-              leftno=Random().nextInt(6)+1; 
-              rightno=Random().nextInt(6)+1; },
+            
             child: Image.asset('diceimages/dice$rightno.png')),
-          ),)
-        ],
+          ),
+        
+        Center(
+          child: RaisedButton(
+            onPressed:(){
+              setState(() {
+                change();
+              });
+            },
+              color:Colors.green,
+              child:Text("ROLL"),
+
+          ),
+        )
+        
+       ],
       ),
     );
+          
   }
 }
